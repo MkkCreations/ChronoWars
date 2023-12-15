@@ -51,7 +51,7 @@ public class Tile : MonoBehaviour
     {
         if (_unit != null)
         {
-            _unit.GetComponent<Unit>().isSelect = true;
+            _unit.GetComponent<BaseUnit>().isSelect = true;
         }
     }
 
