@@ -1,18 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Team : MonoBehaviour
 {
-	// Use this for initialization
-	void Start()
-	{
+    [SerializeField] private List<Unit> _units;
+    [SerializeField] private List<Building> _buildings;
+    [SerializeField] private Color _color;
 
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-			
-	}
 }
-
