@@ -7,12 +7,14 @@ public class GridManager : MonoBehaviour
 {
     // Instance unique de la classe
     public static GridManager Instance;
+
     [SerializeField] private int _width, _hight;
     [SerializeField] private Tile _tilePrefab;
-    [SerializeField] private Unit _unitPrefab;
     [SerializeField] private Transform _cam;
 
     private Dictionary<Vector2Int, Tile> _tiles;
+
+    [SerializeField] private BaseUnit _unitPrefab;
 
     private void Awake()
     {
@@ -42,13 +44,13 @@ public class GridManager : MonoBehaviour
                 instTile.name = $"Tile {x} {y}";
 
                 // Placer une unité pour la team 1 en (0,0)
-                if (x == 5 && y == 5)
+                /*if (x == 5 && y == 5)
                 {
                     var unit = Instantiate(_unitPrefab, new Vector3(x, y), Quaternion.identity);
                     unit.name = $"Unit {x} {y}";
                     unit.currentTile = instTile;
                     instTile.SetUnite(unit.gameObject);
-                }
+                }*/
 
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
 

@@ -1,18 +1,13 @@
-﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-			
-	}
+    [SerializeField] private List<Team> _teams;
+    [SerializeField] private GridManager _gridManager;
+    [SerializeField] private Team _currentTeam;
+    //[SerializeField] private int _day = 1;
+    // Selector
+    [SerializeField] private GameObject _selector;
+    
 }
-
