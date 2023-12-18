@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public string TileName;
+    public TileType TileType;
     [SerializeField] private Color _baseColor, _offsetColor;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _selector;
@@ -41,6 +42,12 @@ public class Tile : MonoBehaviour
         _renderer.color = isOffset ? _offsetColor : _baseColor;
         arrowTranslator = new ArrowTranslator();
 
+    }
+
+    private void Update()
+    {
+        HideTile();
+        if (TileType == TileType.Grass) SetSprite(ArrowTranslator.ArrowDirection.None);
     }
 
     void OnMouseEnter()
@@ -115,9 +122,15 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            sprite.color = new Color(1, 1, 1, 1f);
+            sprite.color = new Color(1, 1, 1, 0.6f);
             sprite.sprite = arrows[(int)d];
             sprite.sortingOrder = 2;
         }
     }
+}
+
+public enum TileType
+{
+    Grass = 0,
+    Water = 1
 }

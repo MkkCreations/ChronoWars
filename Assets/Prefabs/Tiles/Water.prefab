@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileName: Water
+  TileType: 1
   _baseColor: {r: 0.18516374, g: 0.46041885, b: 0.6886792, a: 1}
   _offsetColor: {r: 0.19339623, g: 0.3909966, b: 0.7735849, a: 1}
   _renderer: {fileID: 5429834944145957127}
