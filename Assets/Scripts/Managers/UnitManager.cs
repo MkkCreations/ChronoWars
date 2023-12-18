@@ -14,7 +14,7 @@ public class UnitManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+ 
         _units = Resources.LoadAll<ScriptableUnit>("Units").ToList();
     }
 
