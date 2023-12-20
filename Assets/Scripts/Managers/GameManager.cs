@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
             case GameState.SetTeams:
                 TeamManager.Instance.CreateTeams();
                 break;
+            case GameState.SpawnBuildings:
+                break;
             case GameState.SpawnHeroes:
                 UnitManager.Instance.SpawnHeros();
                 break;
@@ -59,10 +61,11 @@ public class GameManager : MonoBehaviour
 
 public enum GameState
 {
-    GenerateGrid = 0,
-    SetTeams = 1,
-    SpawnHeroes = 2,
-    SpawnEnemies = 3,
-    HeroesTurn = 4,
-    EnemiesTurn = 5
+    GenerateGrid,
+    SetTeams,
+    SpawnBuildings,
+    SpawnHeroes,
+    SpawnEnemies,
+    HeroesTurn,
+    EnemiesTurn
 }

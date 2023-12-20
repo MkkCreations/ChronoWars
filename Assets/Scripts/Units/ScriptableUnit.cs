@@ -8,6 +8,4 @@ public class ScriptableUnit : ScriptableObject
     public BaseUnit UnitPrefab;
     public Faction Faction;
     public Team Team;
-    
 }
-

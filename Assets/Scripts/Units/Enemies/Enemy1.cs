@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : BaseEnemy
+public class Enemy1 : BaseUnit
 {
     [SerializeField] private int _moveRange = 3;
     [SerializeField] private float _speed = 2f;
