@@ -11,7 +11,7 @@ public class BaseUnit : MonoBehaviour
     protected ArrowTranslator _arrowTranslator;
 
     public Team team;
-    public Faction Faction;
+    public Faction faction;
 
     public RangeFinder rangeFinder;
     public PathFinder pathFinder;

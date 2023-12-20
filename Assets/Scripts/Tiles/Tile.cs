@@ -70,10 +70,10 @@ public class Tile : MonoBehaviour
 
         if (OccupiedUnit != null)
         {
-            if (OccupiedUnit.Team.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+            if (OccupiedUnit.team.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseUnit)OccupiedUnit);
             else
             {
-                if (UnitManager.Instance.SelectedHero != null && UnitManager.Instance.SelectedHero.Team != OccupiedUnit.Team && UnitManager.Instance.SelectedHero.rangeFinderTiles.Contains(this))
+                if (UnitManager.Instance.SelectedHero != null && UnitManager.Instance.SelectedHero.team != OccupiedUnit.team && UnitManager.Instance.SelectedHero.rangeFinderTiles.Contains(this))
                 {
                     var enemy = (BaseUnit)OccupiedUnit;
                     Destroy(enemy.gameObject);

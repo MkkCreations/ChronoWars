@@ -30,7 +30,7 @@ public class UnitManager : MonoBehaviour
 
             randomSpawnTile.SetUnit(spawnedHero);
             Team team = TeamManager.Instance.TeamHero;
-            randomPrefab.Team = team;
+            randomPrefab.team = team;
             team.AddUnit(randomPrefab);
         }
 
@@ -49,7 +49,7 @@ public class UnitManager : MonoBehaviour
 
             randomSpawnTile.SetUnit(spawnedEnemy);
             Team team = TeamManager.Instance.TeamEnemy;
-            randomPrefab.Team = team;
+            randomPrefab.team = team;
             team.AddUnit(randomPrefab);
         }
         GameManager.Instance.ChangeState(GameState.HeroesTurn);
