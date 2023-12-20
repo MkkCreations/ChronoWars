@@ -15,9 +15,9 @@ public class Tile : MonoBehaviour
     private ArrowTranslator arrowTranslator;
 
     public BaseUnit OccupiedUnit;
-    public Building OccupiedBuilding;
+    public Building occupiedBuilding;
 
-    public bool walkable => _isWalkable && OccupiedUnit == null;
+    public bool walkable => (_isWalkable && OccupiedUnit == null) || (_isWalkable && (occupiedBuilding == null || occupiedBuilding != null));
 
     // Liste de arrows
     public List<Sprite> arrows;
@@ -81,6 +81,11 @@ public class Tile : MonoBehaviour
                 }
             }
         }
+
+        if(occupiedBuilding != null)
+        {
+            if (occupiedBuilding.team.Faction == Faction.Hero) BuildingManager.Instance.SelectedBuilding = occupiedBuilding;
+        }   
     }
 
     public bool isHovered()
@@ -101,6 +106,20 @@ public class Tile : MonoBehaviour
     public BaseUnit GetUnite()
     {
         return _unit;
+    }
+
+    public void SetBuilding(Building building)
+    {
+        if(!walkable) return;
+        if (building.currentTile != null) building.currentTile.occupiedBuilding = null;
+        building.transform.position = transform.position;
+        occupiedBuilding = building;
+        building.currentTile = this;
+    }
+
+    public Building GetBuilding()
+    {
+        return occupiedBuilding;
     }
 
     public void ShowTile()

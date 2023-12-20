@@ -5,17 +5,21 @@ public class GroundBuilding : Building
 {
     void Start()
     {
-        BuildingName = "Caserne";
+        rangeFinder = new RangeFinder();
+        rangeFinderTiles = new List<Tile>();
+        buildingName = "Caserne";
         health = 2;
         typeUnitBuilding = TypeUnitBuilding.Ground;
         rangeDeploiement = 1;
         isBlocked = false;
-        currentTile = null;
     }
 
     void Update()
     {
-        GetInRangeTiles();
+        if(BuildingManager.Instance.SelectedBuilding == this && currentTile != null)
+        {
+            GetInRangeTiles();
+        }
     }
 
     public void GetInRangeTiles()

@@ -13,4 +13,19 @@ public class Team : MonoBehaviour
     {
         _units.Add(unit);
     }
+
+    public void RemoveUnit(BaseUnit unit)
+    {
+        _units.Remove(unit);
+    }
+
+    public void AddBuilding(Building building)
+    {
+        _buildings.Add(building);
+    }
+
+    public void RemoveBuilding(Building building)
+    {
+        _buildings.Remove(building);
+    }
 }

@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
                 TeamManager.Instance.CreateTeams();
                 break;
             case GameState.SpawnBuildings:
+                BuildingManager.Instance.SpawnBuildingTeamOne();
+                BuildingManager.Instance.SpawnBuildingTeamTwo();
                 break;
             case GameState.SpawnHeroes:
                 UnitManager.Instance.SpawnHeros();

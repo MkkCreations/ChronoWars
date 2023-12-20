@@ -5,7 +5,7 @@ public class HQBuilding : Building
 {
     void Start()
     {
-        BuildingName = "Quartier général";
+        buildingName = "Quartier général";
         health = 4;
         typeUnitBuilding = TypeUnitBuilding.HQ;
         rangeDeploiement = 0;

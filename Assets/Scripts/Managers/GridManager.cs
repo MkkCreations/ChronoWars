@@ -72,6 +72,11 @@ public class GridManager : MonoBehaviour
         return _tiles.Where(t => t.Key.x > _width / 3 && t.Value.walkable).OrderBy(t => Random.value).First().Value;
     }
 
+    public Tile GetBuildingTilesTeamOne()
+    {
+        return _tiles.Where(t => t.Key.x == 4 && t.Key.y == 4 && t.Value.walkable).First().Value;
+    }
+
     public Tile GetTileAtPosition(Vector2Int pos)
     {
         if(_tiles.TryGetValue(pos, out var tile))

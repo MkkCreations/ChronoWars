@@ -20,7 +20,7 @@ public class TeamManager : MonoBehaviour
 
     public void CreateTeams()
     {
-        GameManager.Instance.ChangeState(GameState.SpawnHeroes);
+        GameManager.Instance.ChangeState(GameState.SpawnBuildings);
     }
 
     public void HerosTurn()

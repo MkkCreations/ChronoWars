@@ -4,7 +4,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
-    public string BuildingName;
+    public string buildingName;
 
     public Team team;
     public Faction faction;
@@ -24,6 +24,7 @@ public class Building : MonoBehaviour
         get => _renderer;
         set => _renderer = value;
     }
+
     public Faction Faction
     {
         get => faction;
