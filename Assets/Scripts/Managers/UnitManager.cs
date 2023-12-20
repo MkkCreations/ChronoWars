@@ -14,7 +14,7 @@ public class UnitManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+ 
         _units = Resources.LoadAll<ScriptableUnit>("Units").ToList();
     }
 
@@ -29,6 +29,9 @@ public class UnitManager : MonoBehaviour
             var randomSpawnTile = GridManager.Instance.GetHeroSpawnTile();
 
             randomSpawnTile.SetUnit(spawnedHero);
+            Team team = TeamManager.Instance.TeamHero;
+            randomPrefab.Team = team;
+            team.AddUnit(randomPrefab);
         }
 
         GameManager.Instance.ChangeState(GameState.SpawnEnemies);
@@ -45,6 +48,9 @@ public class UnitManager : MonoBehaviour
             var randomSpawnTile = GridManager.Instance.GetEnemySpawnTile();
 
             randomSpawnTile.SetUnit(spawnedEnemy);
+            Team team = TeamManager.Instance.TeamEnemy;
+            randomPrefab.Team = team;
+            team.AddUnit(randomPrefab);
         }
         GameManager.Instance.ChangeState(GameState.HeroesTurn);
     }

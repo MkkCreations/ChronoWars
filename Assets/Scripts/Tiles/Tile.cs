@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public string TileName;
+    public TileType TileType;
     [SerializeField] private Color _baseColor, _offsetColor;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _selector;
@@ -45,6 +46,12 @@ public class Tile : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        HideTile();
+        if (TileType == TileType.Grass) SetSprite(ArrowTranslator.ArrowDirection.None);
+    }
+
     void OnMouseEnter()
     {
         GridManager.Instance.HoveredTile = this;
@@ -60,14 +67,13 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
 
         if (OccupiedUnit != null)
         {
-            if (OccupiedUnit.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero(OccupiedUnit);
+            if (OccupiedUnit.Team.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
             else
             {
-                if (UnitManager.Instance.SelectedHero != null)
+                if (UnitManager.Instance.SelectedHero != null && UnitManager.Instance.SelectedHero.Team != OccupiedUnit.Team && UnitManager.Instance.SelectedHero.rangeFinderTiles.Contains(this))
                 {
                     var enemy = (BaseUnit)OccupiedUnit;
                     Destroy(enemy.gameObject);
@@ -117,9 +123,15 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            sprite.color = new Color(1, 1, 1, 1f);
+            sprite.color = new Color(1, 1, 1, 0.6f);
             sprite.sprite = arrows[(int)d];
             sprite.sortingOrder = 2;
         }
     }
+}
+
+public enum TileType
+{
+    Grass = 0,
+    Water = 1
 }

@@ -48,22 +48,34 @@ public class ArrowTranslator
 
         if (direction == new Vector2(1, 1))
         {
-            return ArrowDirection.TopRight;
+            if (pastDirection.y < futureDirection.y)
+                return ArrowDirection.BottomLeft;
+            else
+                return ArrowDirection.TopRight;
         }
 
         if (direction == new Vector2(-1, 1))
         {
-            return ArrowDirection.TopLeft;
+            if (pastDirection.y < futureDirection.y)
+                return ArrowDirection.BottomRight;
+            else
+                return ArrowDirection.TopLeft;
         }
 
         if (direction == new Vector2(1, -1))
         {
-            return ArrowDirection.BottomRight;
+            if (pastDirection.y > futureDirection.y)
+                return ArrowDirection.TopLeft;
+            else
+                return ArrowDirection.BottomRight;
         }
 
         if (direction == new Vector2(-1, -1))
         {
-            return ArrowDirection.BottomLeft;
+            if (pastDirection.y > futureDirection.y)
+                return ArrowDirection.TopRight;
+            else
+                return ArrowDirection.BottomLeft;
         }
 
         if (direction == new Vector2(0, 1) && isFinal)
