@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero1 : BaseHero
+public class Hero1 : BaseUnit
 {
 
     [SerializeField] private int _moveRange = 3;

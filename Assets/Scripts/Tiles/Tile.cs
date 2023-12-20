@@ -14,6 +14,8 @@ public class Tile : MonoBehaviour
     private ArrowTranslator arrowTranslator;
 
     public BaseUnit OccupiedUnit;
+    public Building OccupiedBuilding;
+
     public bool walkable => _isWalkable && OccupiedUnit == null;
 
     // Liste de arrows
@@ -62,12 +64,12 @@ public class Tile : MonoBehaviour
 
         if (OccupiedUnit != null)
         {
-            if (OccupiedUnit.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+            if (OccupiedUnit.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero(OccupiedUnit);
             else
             {
                 if (UnitManager.Instance.SelectedHero != null)
                 {
-                    var enemy = (BaseEnemy)OccupiedUnit;
+                    var enemy = (BaseUnit)OccupiedUnit;
                     Destroy(enemy.gameObject);
                     UnitManager.Instance.SetSelectedHero(null);
                 }
