@@ -65,14 +65,13 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GameManager.Instance.GameState != GameState.HeroesTurn) return;
 
         if (OccupiedUnit != null)
         {
-            if (OccupiedUnit.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
+            if (OccupiedUnit.Team.Faction == Faction.Hero) UnitManager.Instance.SetSelectedHero((BaseHero)OccupiedUnit);
             else
             {
-                if (UnitManager.Instance.SelectedHero != null)
+                if (UnitManager.Instance.SelectedHero != null && UnitManager.Instance.SelectedHero.Team != OccupiedUnit.Team && UnitManager.Instance.SelectedHero.rangeFinderTiles.Contains(this))
                 {
                     var enemy = (BaseEnemy)OccupiedUnit;
                     Destroy(enemy.gameObject);

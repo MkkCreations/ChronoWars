@@ -10,7 +10,7 @@ public class BaseUnit : MonoBehaviour
     public string UnitName;
     protected ArrowTranslator _arrowTranslator;
 
-    public Faction Faction;
+    public Team Team;
 
     public RangeFinder rangeFinder;
     public PathFinder pathFinder;
@@ -22,7 +22,6 @@ public class BaseUnit : MonoBehaviour
     public Tile tileToMove;
 
     public bool isMoving = false;
-    public bool isSelect = false;
 
 }
 
