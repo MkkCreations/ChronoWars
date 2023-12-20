@@ -24,7 +24,6 @@ public class BaseUnit : MonoBehaviour
 
 
     public bool isMoving = false;
-    public bool isSelect = false;
     public bool isBlocked = false;
 
 }

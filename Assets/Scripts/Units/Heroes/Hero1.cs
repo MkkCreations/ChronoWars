@@ -27,10 +27,7 @@ public class Hero1 : BaseHero
             {
                 path = pathFinder.FindPath(currentTile, tileToMove, rangeFinderTiles);
 
-                foreach (var item in rangeFinderTiles)
-                {
-                    GridManager.Instance.map[item.grid2DLocation].SetSprite(ArrowTranslator.ArrowDirection.None);
-                }
+                RemoveArrows();
 
                 for (int i = 0; i < path.Count; i++)
                 {
@@ -69,7 +66,6 @@ public class Hero1 : BaseHero
         var step = _speed * Time.deltaTime;
 
         transform.position = Vector2.MoveTowards(transform.position, path[0].transform.position, step);
-        transform.position = new Vector3Int((int)transform.position.x, (int)transform.position.y);
 
         if (Vector2.Distance(transform.position, path[0].transform.position) < 0.00001f)
         {
@@ -88,16 +84,29 @@ public class Hero1 : BaseHero
     {
         transform.position = new Vector2(tile.transform.position.x, tile.transform.position.y + 0.0001f);
         GetComponent<SpriteRenderer>().sortingOrder = tile.GetComponent<SpriteRenderer>().sortingOrder;
-        currentTile = tile;
+        tile.SetUnit(this);
     }
 
     public void GetInRangeTiles()
     {
-        rangeFinderTiles = rangeFinder.GetTilesInRange(new Vector2Int((int)currentTile.transform.position.x, (int)currentTile.transform.position.y), _moveRange);
-
-        foreach (Tile item in rangeFinderTiles)
+        List<Tile> allRange = rangeFinder.GetTilesInRange(new Vector2Int((int)currentTile.transform.position.x, (int)currentTile.transform.position.y), _moveRange);
+        rangeFinderTiles = new List<Tile>();
+        foreach (Tile item in allRange)
         {
+            if (item.TileType == TileType.Water || item.OccupiedUnit)
+            {
+                continue;
+            }
+            rangeFinderTiles.Add(item);
             item.ShowTile();
+        }
+    }
+
+    private void RemoveArrows()
+    {
+        foreach (var item in rangeFinderTiles)
+        {
+            GridManager.Instance.map[item.grid2DLocation].SetSprite(ArrowTranslator.ArrowDirection.None);
         }
     }
 }
