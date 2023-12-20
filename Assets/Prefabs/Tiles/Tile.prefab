@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileName: Grass
+  TileType: 0
   _baseColor: {r: 0.22337538, g: 0.5283019, b: 0.2018512, a: 1}
   _offsetColor: {r: 0.2770753, g: 0.5660378, b: 0.22694911, a: 1}
   _renderer: {fileID: 4789614978212838493}
@@ -193,6 +194,7 @@ MonoBehaviour:
   _isWalkable: 1
   isBlocked: 0
   OccupiedUnit: {fileID: 0}
+  occupiedBuilding: {fileID: 0}
   arrows:
   - {fileID: 0}
   - {fileID: -963083099, guid: 1b2d5edfc4d37d94984e7945512a9eb6, type: 3}
@@ -326,7 +328,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b64eb97fafe354f1d92c1df33f0e3c95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

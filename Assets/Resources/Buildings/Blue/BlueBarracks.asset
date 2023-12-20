@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 230f3504810bb4e4c8942d15f9828f88, type: 3}
   m_Name: BlueBarracks
   m_EditorClassIdentifier: 
-  BuildingPrefab: {fileID: 0}
-  Faction: 0
-  Team: {fileID: 0}
+  buildingPrefab: {fileID: 7576662616898612260, guid: 7afaa7f6bf85c9048a2215a98bb937fd, type: 3}
+  faction: 0
+  team: {fileID: 0}
+  typeUnitBuilding: 2
